@@ -45,4 +45,20 @@ defer:
   return result;
 }
 
+void olive_fill_rect(uint32_t *pixels, size_t pixels_width,
+                     size_t pixels_height, int x0, int y0, size_t w, size_t h,
+                     uint32_t color) {
+  for (int dy = 0; dy < (int)h; ++dy) {
+    int y = y0 + dy;
+    if (0 <= y && y < (int)pixels_height) {
+      for (int dx = 0; dx < (int)w; ++dx) {
+        int x = x0 + dx;
+        if (0 <= x && x < (int)pixels_width) {
+          pixels[y * pixels_width + x] = color;
+        }
+      }
+    }
+  }
+}
+
 #endif // OLIVE_C_
