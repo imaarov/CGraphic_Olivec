@@ -46,7 +46,9 @@ bool checker_example()
 
 
 int main(void) {
-
+  if(! checker_example()) 
+    return -1;
+  
 
   return 0;
 }
